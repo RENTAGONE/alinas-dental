@@ -264,17 +264,12 @@ function Reveal({
   delay?: number;
 }) {
   return (
-    <motion.div
-      className={`h-full ${className}`}
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: "some" }}
-      transition={{ duration: 0.6, ease: EASE_OUT, delay }}
-    >
+    <div className={`h-full ${className}`}>
       {children}
-    </motion.div>
+    </div>
   );
 }
+
 
 /** Border emphasis via opacity only (no layout or paint-heavy transitions). */
 function HoverRing({ dark = false }: { dark?: boolean }) {
