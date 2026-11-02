@@ -36,7 +36,7 @@ import {
   formatBDT,
   formatLakhCrore,
   MASTER_SPRING,
-} from "@/utils/dhakaFormatters";
+} from "../utils/dhakaFormatters";
 
 /* ────────────────────────────────────────────────────────────────────────────
  * Fonts & shared tokens
