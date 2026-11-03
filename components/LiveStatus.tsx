@@ -27,7 +27,7 @@ export function LiveStatus({ className, tone = "dark", bare = false }: { classNa
   }, [live, sch]);
 
   const shell = cn(
-    "inline-flex min-h-7 items-center gap-2 text-xs font-medium",
+    "whitespace-nowrap inline-flex min-h-7 items-center gap-2 text-xs font-medium",
     !bare && "rounded-full border px-3 py-1",
     !bare && (tone === "dark" ? "border-white/20 bg-white/[0.06] text-white" : "border-ink-950/15 bg-ink-950/[0.04] text-ink-950"),
     bare && (tone === "dark" ? "text-white" : "text-ink-950"),
