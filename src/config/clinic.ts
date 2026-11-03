@@ -5,13 +5,13 @@ import type { Schedule } from "@/lib/dhaka";
 export const CLINIC = {
   name: "Alina’s Dental Grace",
   nameBn: "অ্যালিনাস ডেন্টাল গ্রেস",
-  whatsapp: "8801533835136",
-  phone: "+8801533835136",
-  phoneLabel: "+880 1533-835136",
+  whatsapp: "8801671314890",
+  phone: "+8801671314890",
+  phoneLabel: "+880 1671-314890",
   address: bi("এভিনিউ-৫/১৭, মিরপুর-৬, ঢাকা ১২১৬", "Avenue-5/17, Mirpur-6, Dhaka 1216"),
   zone: bi("মিরপুর-৬, ঢাকা", "Mirpur-6, Dhaka"),
   /** Paste the clinic's Google Maps share link here. Empty = a Google Maps search link is built from the name and address. */
-  mapsUrl: "",
+  mapsUrl: "https://maps.app.goo.gl/MjKEofFB7Hfb8bgR8?g_st=ac",
   rating: { value: 4.9, count: 161 },
   facebook: "",
   instagram: "",
