@@ -33,7 +33,7 @@ export function Providers({ children }: { children: ReactNode }) {
   }, [finish]);
 
   useEffect(() => { document.body.style.overflow = splash ? "hidden" : ""; }, [splash]);
-  useEffect(() => { document.documentElement.lang = lang; }, [lang]);
+  useEffect(() => { document.documentElement.lang = lang; if (lang === "en") setAskOpen(false); }, [lang]);
 
   useEffect(() => {
     if (splash || askDone || lang === "en") return;

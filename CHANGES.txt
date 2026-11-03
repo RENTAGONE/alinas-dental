@@ -1,0 +1,29 @@
+ALINA'S DENTAL GRACE v2.0.1: changed-files-only zip (built from Apollo_dental_full_demo.zip)
+Copy these files over the project root. Zip contents sit at the top level.
+
+v2.0.1 FIXES
+  src/config/clinic.ts       number set to 8801671314890 / +8801671314890 / "+880 1671-314890" (the only place to edit it)
+  lib/data.ts                FAQ answer now reads the phone number from clinic.ts (it was hardcoded)
+  components/LiveStatus.tsx  status pill split into separate non-wrapping pieces: Closed • Opens 5:00 PM
+  components/Providers.tsx   the "Viewing in Bangla" prompt now closes itself when you switch language from the navbar
+
+REMOVED (delete from the old project)
+  components/SmileArc.tsx   -> replaced by components/GraceLotus.tsx
+  components/Journey.tsx    -> renamed to components/Process.tsx ("Journey" is on the banned-word list)
+
+ADDED
+  app/api/lead/route.ts, app/process/page.tsx, app/reviews/page.tsx
+  components/BeforeAfter.tsx, GraceLotus.tsx, LiveStatus.tsx, Process.tsx, TierEstimator.tsx
+  lib/dhaka.ts, lib/lead.ts
+
+CHANGED
+  README.md, package.json, tailwind.config.ts
+  app/globals.css, app/icon.svg, app/layout.tsx, app/page.tsx, app/contact, app/team, app/treatments, app/treatments/[slug], app/not-found.tsx, app/sitemap.ts
+  components: AppointmentPicker, CTABand, Doctors, FAQ, Footer, Hero, LocationSection, MobileBar, Navbar, Providers, Reveal, Reviews, Splash, TreatmentCard, TreatmentDetail, TreatmentExplorer, TrustStats, ui
+  lib: data.ts, i18n.ts, site.ts
+  src/config/clinic.ts
+
+UNCHANGED (not in this zip)
+  components/Photo.tsx, components/MapEmbed.tsx, lib/cn.ts, app/robots.ts, next.config.mjs, postcss.config.mjs, tsconfig.json, .env.example, .gitignore, REBUILD_PROMPT.md
+
+CHECKS: strict tsc 0 errors (stub typings, no network in the build sandbox), per-file parse, banned-word grep, runtime tests of Dhaka status and /api/lead. next build was not run.

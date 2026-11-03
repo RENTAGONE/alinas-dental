@@ -27,7 +27,7 @@ export function LiveStatus({ className, tone = "dark", bare = false }: { classNa
   }, [live, sch]);
 
   const shell = cn(
-    "whitespace-nowrap inline-flex min-h-7 items-center gap-2 text-xs font-medium",
+    "inline-flex min-h-7 items-center gap-2 whitespace-nowrap text-xs font-medium",
     !bare && "rounded-full border px-3 py-1",
     !bare && (tone === "dark" ? "border-white/20 bg-white/[0.06] text-white" : "border-ink-950/15 bg-ink-950/[0.04] text-ink-950"),
     bare && (tone === "dark" ? "text-white" : "text-ink-950"),
@@ -54,9 +54,17 @@ export function LiveStatus({ className, tone = "dark", bare = false }: { classNa
     <span role="status" className={shell}>
       {dot}
       {open ? (
-        <span>{tr(bi("এখন খোলা", "Open now"))} • {tr(bi("বন্ধ হবে ", "Closes "))}<Mono>{st.time}</Mono></span>
+        <>
+          <span>{tr(bi("এখন খোলা", "Open now"))}</span>
+          <span aria-hidden>•</span>
+          <span>{tr(bi("বন্ধ হবে", "Closes"))} <Mono>{st.time}</Mono></span>
+        </>
       ) : (
-        <span>{tr(bi("বন্ধ", "Closed"))} • {tr(bi("খুলবে ", "Opens "))}{st.dayIdx !== null && <>{tr(DAY_SHORT[st.dayIdx])} </>}<Mono>{st.time}</Mono></span>
+        <>
+          <span>{tr(bi("বন্ধ", "Closed"))}</span>
+          <span aria-hidden>•</span>
+          <span>{tr(bi("খুলবে", "Opens"))} {st.dayIdx !== null && <>{tr(DAY_SHORT[st.dayIdx])} </>}<Mono>{st.time}</Mono></span>
+        </>
       )}
     </span>
   );
