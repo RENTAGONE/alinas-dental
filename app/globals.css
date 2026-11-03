@@ -1,3 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* THEME P02 (Harley Street Emerald & Warm Ivory): the only place colours live. Values are R G B channels.
+   ink = emerald dark base (#062219) · lagoon = clinical teal (#0D9488) · brass = champagne gold (#D4AF37) · porcelain = warm ivory (#FAF9F5) */
+:root {
+  --ink-950: 6 34 25;
+  --ink-900: 10 46 35;
+  --ink-800: 15 61 47;
+  --ink-700: 22 82 64;
+  --lagoon-300: 167 232 222;
+  --lagoon-400: 61 196 181;
+  --lagoon-500: 13 148 136;
+  --lagoon-600: 15 118 110;
+  --brass-200: 245 232 178;
+  --brass-300: 232 205 112;
+  --brass-400: 212 175 55;
+  --brass-500: 170 135 28;
+  --brass-600: 125 96 14;
+  --porcelain: 250 249 245;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 8rem; }
+  body { @apply bg-ink-950 font-sans text-ink-950 antialiased; line-height: 1.7; overflow-x: clip; }
+  h1, h2, h3, h4 { @apply font-display; font-weight: 600; }
+  html[lang="en"] h1 { line-height: 1.12; letter-spacing: -0.015em; }
+  html[lang="en"] h2, html[lang="en"] h3, html[lang="en"] h4 { line-height: 1.2; letter-spacing: -0.01em; }
+  /* Bangla: line-height never below 1.35 so vowel signs (kar) are not clipped; no tracking on conjuncts. */
+  html[lang="bn"] h1, html[lang="bn"] h2, html[lang="bn"] h3, html[lang="bn"] h4 { line-height: 1.4; letter-spacing: 0; }
+  html[lang="bn"] :is(.text-xs, .text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl, .text-7xl) { line-height: 1.45; }
+  ::selection { background: rgb(var(--brass-400)); color: rgb(var(--ink-950)); }
+  :focus-visible { outline: 2px solid rgb(var(--lagoon-400)); outline-offset: 3px; }
+}
+
+@layer components {
+  .grain::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .07; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  .btn-brass {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-brass-400 px-6 py-3 font-semibold text-ink-950 transition-colors hover:bg-brass-300;
+  }
+  .btn-ghost {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-white/30 px-6 py-3 font-medium text-white transition-colors hover:bg-white/10;
+  }
+  .btn-ink {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-ink-950 px-6 py-3 font-semibold text-white transition-colors hover:bg-ink-800;
+  }
+  .btn-line {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-ink-950/25 px-6 py-3 font-medium text-ink-950 transition-colors hover:bg-ink-950/5;
+  }
+  .btn-wa {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-emerald-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-emerald-500;
+  }
+}
+
+/* If scripts never load, the opening overlay hides itself after 7s so the site is never blocked. */
+@keyframes splash-failsafe { to { visibility: hidden; pointer-events: none; } }
+.splash-failsafe { animation: splash-failsafe 0.01s linear 7s forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .animate-ping { animation: none !important; }
+  [data-reveal] { transform: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
