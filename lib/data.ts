@@ -143,7 +143,7 @@ export const REVIEWS: Review[] = [
 export const FAQS: { q: Bi; a: Bi }[] = [
   {
     q: bi("কীভাবে স্লটের অনুরোধ করব?", "How do I request a slot?"),
-    a: bi("এই পেজে ট্রিটমেন্ট, সময়সীমা ও সময় বেছে নিন, অথবা WhatsApp-এ লিখুন বা {{+880 1533-835136}} নম্বরে ফোন করুন। ক্লিনিক আপনাকে সময় নিশ্চিত করবে।", "Pick a treatment, window and time on this page, message on WhatsApp, or call {{+880 1533-835136}}. The clinic confirms a time with you."),
+    a: bi("এই পেজে ট্রিটমেন্ট, সময়সীমা ও সময় বেছে নিন, অথবা WhatsApp-এ লিখুন বা {{+880 1671-314890}} নম্বরে ফোন করুন। ক্লিনিক আপনাকে সময় নিশ্চিত করবে।", "Pick a treatment, window and time on this page, message on WhatsApp, or call {{+880 1671-314890}}. The clinic confirms a time with you."),
   },
   {
     q: bi("ক্লিনিক কোথায়?", "Where is the clinic?"),
